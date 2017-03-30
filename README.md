@@ -7,6 +7,12 @@
 
 ## Usage
 
+Add CKEditor to your index.html
+```html
+    <script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+```
+
+
 ```js
 var CKEditor = require('react-ckeditor-wrapper');
  
@@ -21,7 +27,7 @@ class Example  extends Component {
     updateContent(value) {
         this.setState({content:value})
     }
-    
+
     render() {
         return (<CKEditor value={this.state.content} onChange={this.updateContent.bind(this)} />)
     }
@@ -90,4 +96,4 @@ open coverage/ dir
 
 ## License
 
-rc-input-number is released under the MIT license.
+react-ckeditor-wrapper is released under the MIT license.

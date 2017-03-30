@@ -13,17 +13,17 @@
     "assets/*.css"
   ],
   "main": "./lib/index",
-  "homepage": "https://github.com/luigiinred/ckeditor-react",
+  "homepage": "https://github.com/luigiinred/react-ckeditor-wrapper",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luigiinred/ckeditor-react.git"
+    "url": "https://github.com/luigiinred/react-ckeditor-wrapper.git"
   },
   "maintainers": [
     "timmy.garrabrant@gmail.com"
   ],
 
   "bugs": {
-    "url": "https://github.com/luigiinred/ckeditor-react/issues"
+    "url": "https://github.com/luigiinred/react-ckeditor-wrapper/issues"
   },
   "licenses": "MIT",
   "config": {
