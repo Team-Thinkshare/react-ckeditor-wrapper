@@ -22565,6 +22565,10 @@ webpackJsonp([0,1],[
 	        });
 	    };
 	
+	    CKEditor.prototype.componentDidUpdate = function componentDidUpdate() {
+	        console.log('updating', this.state);
+	    };
+	
 	    CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
 	        this.state = {
 	            value: this.props.value,
@@ -22572,10 +22576,10 @@ webpackJsonp([0,1],[
 	            onChange: this.props.onChange
 	        };
 	
+	        console.log('setting value', this.state.value);
 	        if (!this.instance) {
 	            return;
 	        }
-	        console.log('setting value', this.state.value);
 	        this.instance.setData(this.state.value);
 	    };
 	
