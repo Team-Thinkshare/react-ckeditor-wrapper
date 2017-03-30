@@ -22565,6 +22565,14 @@ webpackJsonp([0,1],[
 	        });
 	    };
 	
+	    CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
+	        this.state = {
+	            value: this.props.value,
+	            config: this.props.config || {},
+	            onChange: this.props.onChange
+	        };
+	    };
+	
 	    CKEditor.prototype.render = function render() {
 	        return _react2.default.createElement('div', null);
 	    };
