@@ -22572,17 +22572,18 @@ webpackJsonp([0,1],[
 	
 	    CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
 	        console.log(props);
-	        this.state = {
+	        this.setState({
 	            value: this.props.value,
 	            config: this.props.config || {},
 	            onChange: this.props.onChange
-	        };
+	        });
 	
-	        console.log('setting value', this.state.value);
+	        console.log('setting value', this.props.value);
+	        console.log('setting value', this.props.value);
 	        if (!this.instance) {
 	            return;
 	        }
-	        this.instance.setData(this.state.value);
+	        this.instance.setData(this.props.value);
 	    };
 	
 	    CKEditor.prototype.render = function render() {
