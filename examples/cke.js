@@ -22553,6 +22553,10 @@ webpackJsonp([0,1],[
 	    };
 	
 	    CKEditor.prototype.componentDidMount = function componentDidMount() {
+	        this.componentDidUpdate();
+	    };
+	
+	    CKEditor.prototype.componentDidUpdate = function componentDidUpdate() {
 	        var _this2 = this;
 	
 	        if (!window.CKEDITOR) {
