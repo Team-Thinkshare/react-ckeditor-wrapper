@@ -22571,19 +22571,20 @@ webpackJsonp([0,1],[
 	    };
 	
 	    CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
-	        console.log(props);
+	        if (!this.instance) {
+	            return;
+	        }
+	
+	        if (this.state.value !== props.value) {
+	            // setData will move the cursor to the begining of the input
+	            this.instance.setData(props.value);
+	        }
+	
 	        this.setState({
 	            value: props.value,
 	            config: props.config || {},
 	            onChange: props.onChange
 	        });
-	
-	        console.log('setting value', props.value);
-	        console.log('setting value', props.value);
-	        if (!this.instance) {
-	            return;
-	        }
-	        this.instance.setData(props.value);
 	    };
 	
 	    CKEditor.prototype.render = function render() {
