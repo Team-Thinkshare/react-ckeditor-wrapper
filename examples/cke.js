@@ -22571,10 +22571,11 @@ webpackJsonp([0,1],[
 	            config: this.props.config || {},
 	            onChange: this.props.onChange
 	        };
+	
 	        if (!this.instance) {
 	            return;
 	        }
-	
+	        console.log('setting value', this.state.value);
 	        this.instance.setData(this.state.value);
 	    };
 	
