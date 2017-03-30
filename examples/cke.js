@@ -22548,25 +22548,29 @@ webpackJsonp([0,1],[
 	    }
 	
 	    CKEditor.prototype.handleChange = function handleChange(value) {
-	        console.log(value);
 	        this.state.onChange(value);
 	    };
 	
 	    CKEditor.prototype.componentDidMount = function componentDidMount() {
-	        this.componentDidUpdate();
-	    };
-	
-	    CKEditor.prototype.componentDidUpdate = function componentDidUpdate() {
 	        var _this2 = this;
 	
 	        if (!window.CKEDITOR) {
 	            console.error('CKEditor not found');
 	            return;
 	        }
-	        var instance = window.CKEDITOR.appendTo(_reactDom2.default.findDOMNode(this), this.state.config, this.state.value);
-	        instance.on('change', function () {
-	            _this2.handleChange(instance.getData());
+	
+	        this.instance = window.CKEDITOR.appendTo(_reactDom2.default.findDOMNode(this), this.state.config, this.state.value);
+	        this.instance.on('change', function () {
+	            _this2.handleChange(_this2.instance.getData());
 	        });
+	    };
+	
+	    CKEditor.prototype.componentDidUpdate = function componentDidUpdate() {
+	        if (!this.instance) {
+	            return;
+	        }
+	
+	        this.instance.setData(this.state.value);
 	    };
 	
 	    CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
