@@ -22547,8 +22547,8 @@ webpackJsonp([0,1],[
 	        return _this;
 	    }
 	
-	    CKEditor.prototype.handleChange = function handleChange(value) {
-	        this.state.onChange(value);
+	    CKEditor.prototype.handleChange = function handleChange() {
+	        this.state.onChange(this.state.value);
 	    };
 	
 	    CKEditor.prototype.componentDidMount = function componentDidMount() {
@@ -22561,7 +22561,8 @@ webpackJsonp([0,1],[
 	
 	        this.instance = window.CKEDITOR.appendTo(_reactDom2.default.findDOMNode(this), this.state.config, this.state.value);
 	        this.instance.on('change', function () {
-	            _this2.handleChange(_this2.instance.getData());
+	            _this2.state.value = _this2.instance.getData();
+	            _this2.handleChange();
 	        });
 	    };
 	
@@ -22570,6 +22571,7 @@ webpackJsonp([0,1],[
 	    };
 	
 	    CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
+	        console.log(props);
 	        this.state = {
 	            value: this.props.value,
 	            config: this.props.config || {},
