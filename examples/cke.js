@@ -22565,20 +22565,17 @@ webpackJsonp([0,1],[
 	        });
 	    };
 	
-	    CKEditor.prototype.componentDidUpdate = function componentDidUpdate() {
-	        if (!this.instance) {
-	            return;
-	        }
-	
-	        this.instance.setData(this.state.value);
-	    };
-	
 	    CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
 	        this.state = {
 	            value: this.props.value,
 	            config: this.props.config || {},
 	            onChange: this.props.onChange
 	        };
+	        if (!this.instance) {
+	            return;
+	        }
+	
+	        this.instance.setData(this.state.value);
 	    };
 	
 	    CKEditor.prototype.render = function render() {
