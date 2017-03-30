@@ -42,11 +42,7 @@ webpackJsonp([0,1],[
 	
 		function App(props) {
 			(0, _classCallCheck3.default)(this, App);
-	
-			var _this = (0, _possibleConstructorReturn3.default)(this, _Component.call(this));
-	
-			console.log(_reactCkeditorWrapper2.default);
-			return _this;
+			return (0, _possibleConstructorReturn3.default)(this, _Component.call(this));
 		}
 	
 		App.prototype.componentDidMount = function componentDidMount() {};
@@ -55,14 +51,14 @@ webpackJsonp([0,1],[
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement('ckeditor', null)
+				_react2.default.createElement(_reactCkeditorWrapper2.default, null)
 			);
 		};
 	
 		return App;
 	}(_react.Component);
 	
-	_reactDom2.default.render(_react2.default.createElement('ckeditor', null), document.getElementById('__react-content'));
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('__react-content'));
 
 /***/ },
 /* 2 */
@@ -22510,7 +22506,7 @@ webpackJsonp([0,1],[
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	
 	var _classCallCheck2 = __webpack_require__(2);
@@ -22536,34 +22532,44 @@ webpackJsonp([0,1],[
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var CKEditor = function (_Component) {
-		(0, _inherits3.default)(CKEditor, _Component);
+	    (0, _inherits3.default)(CKEditor, _Component);
 	
-		function CKEditor(props) {
-			(0, _classCallCheck3.default)(this, CKEditor);
-			return (0, _possibleConstructorReturn3.default)(this, _Component.call(this));
-		}
+	    function CKEditor(props) {
+	        (0, _classCallCheck3.default)(this, CKEditor);
 	
-		CKEditor.prototype.componentDidMount = function componentDidMount() {
-			if (!CKEDITOR) {
-				console.error('CKEditor not found');
-				return;
-			}
-			CKEDITOR.appendTo(_reactDom2.default.findDOMNode(this));
-		};
+	        var _this = (0, _possibleConstructorReturn3.default)(this, _Component.call(this, props));
 	
-		CKEditor.prototype.render = function render() {
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'h1',
-					null,
-					'Hello World!'
-				)
-			);
-		};
+	        _this.state = {
+	            value: _this.props.value,
+	            config: _this.props.config || {},
+	            onChange: _this.props.onChange
+	        };
+	        return _this;
+	    }
 	
-		return CKEditor;
+	    CKEditor.prototype.handleChange = function handleChange(value) {
+	        console.log(value);
+	        this.state.onChange(value);
+	    };
+	
+	    CKEditor.prototype.componentDidMount = function componentDidMount() {
+	        var _this2 = this;
+	
+	        if (!window.CKEDITOR) {
+	            console.error('CKEditor not found');
+	            return;
+	        }
+	        var instance = window.CKEDITOR.appendTo(_reactDom2.default.findDOMNode(this), this.state.config, this.state.value);
+	        instance.on('change', function () {
+	            _this2.handleChange(instance.getData());
+	        });
+	    };
+	
+	    CKEditor.prototype.render = function render() {
+	        return _react2.default.createElement('div', null);
+	    };
+	
+	    return CKEditor;
 	}(_react.Component);
 	
 	exports.default = CKEditor;

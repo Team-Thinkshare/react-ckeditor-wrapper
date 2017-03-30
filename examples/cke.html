@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>cke.js - example - react-ckeditor-wrapper@1.0.5</title>
+  <title>cke.js - example - react-ckeditor-wrapper@1.0.6</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>react-ckeditor-wrapper@1.0.5</h1>
+      <h1>react-ckeditor-wrapper@1.0.6</h1>
 
       <p>CKEditor wrapper for react</p>
     </div>
@@ -271,12 +271,12 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
     <div class="highlight"><pre><code language="js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
-<span class="hljs-keyword">import</span> ckeditor <span class="hljs-keyword">from</span> <span class="hljs-string">'react-ckeditor-wrapper'</span>;
+<span class="hljs-keyword">import</span> CKEditor <span class="hljs-keyword">from</span> <span class="hljs-string">'react-ckeditor-wrapper'</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
 	constructor(props) {
 		<span class="hljs-keyword">super</span>();
-    <span class="hljs-built_in">console</span>.log(ckeditor)
+    
 	}
 
 	componentDidMount() {
@@ -284,13 +284,13 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 	}
 
 	render() {
-		<span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">ckeditor</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">ckeditor</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>)</span>;
+		<span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">CKEditor</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">CKEditor</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>)</span>;
 	}
 }
 
 
 
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">ckeditor</span> /&gt;</span>, document.getElementById('__react-content'));
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">App</span> /&gt;</span>, document.getElementById('__react-content'));
 </span></code></pre></div>
   </div>
   <a href="https://github.com/luigiinred/ckeditor-react">
