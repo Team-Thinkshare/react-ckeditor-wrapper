@@ -29,9 +29,22 @@ class Example  extends Component {
     }
 
     render() {
-        return (<CKEditor value={this.state.content} onChange={this.updateContent.bind(this)} />)
+        return (<CKEditor 
+        value={this.state.content} 
+        onChange={this.updateContent.bind(this)} />)
     }
 }
+```
+
+With custom config
+```js
+    render() {
+        return (<CKEditor 
+        value={this.state.content} 
+        onChange={this.updateContent.bind(this)} 
+        config={{ readOnly: true }}/>)
+    }
+
 ```
 
 ## Development
