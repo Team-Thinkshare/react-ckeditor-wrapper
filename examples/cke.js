@@ -22580,7 +22580,7 @@ webpackJsonp([0,1],[
 	      this.instance.setData(props.value);
 	    }
 	
-	    if (this.state.config !== props.config) {
+	    if (props.config && this.state.config !== props.config) {
 	      if ("readOnly" in props.config) this.instance.setReadOnly(props.config.readOnly);
 	    }
 	
