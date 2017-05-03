@@ -1,6 +1,6 @@
 {
   "name": "react-ckeditor-wrapper",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "CKEditor wrapper for react",
   "keywords": [
     "react",
@@ -21,7 +21,6 @@
   "maintainers": [
     "timmy.garrabrant@gmail.com"
   ],
-
   "bugs": {
     "url": "https://github.com/luigiinred/react-ckeditor-wrapper/issues"
   },
