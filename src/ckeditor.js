@@ -33,7 +33,6 @@ class CKEditor extends Component {
   }
 
   componentDidUpdate() {
-    console.log("updating", this.state);
   }
 
   componentWillReceiveProps(props) {
