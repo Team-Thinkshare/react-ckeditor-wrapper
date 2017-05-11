@@ -107,6 +107,15 @@ npm run coverage
 
 open coverage/ dir
 
+
+## Deploy to npm
+
+Because I am sure I will forget
+```
+npm run pub
+```
+
+
 ## License
 
 react-ckeditor-wrapper is released under the MIT license.
