@@ -22566,10 +22566,6 @@ webpackJsonp([0,1],[
 	    });
 	  };
 	
-	  CKEditor.prototype.componentDidUpdate = function componentDidUpdate() {
-	    console.log("updating", this.state);
-	  };
-	
 	  CKEditor.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {
 	    if (!this.instance) {
 	      return;
