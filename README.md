@@ -7,10 +7,15 @@
 
 ## Usage
 
-Add CKEditor to your index.html
+Add CKEditor to your index.html from the cdn
 ```html
     <script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 ```
+or if you want a custom version of ckeditor
+```html
+     <script src="assets/ckeditor/ckeditor.js"></script>
+```
+
 
 
 ```js
