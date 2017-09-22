@@ -4,15 +4,14 @@ import ReactDOM from "react-dom";
 class CKEditor extends Component {
   constructor(props) {
     super(props);
+
+    this.changeListener = this.changeListener.bind(this);
+
     this.state = {
       value: props.value,
       config: props.config || {},
       onChange: props.onChange
     };
-  }
-
-  handleChange() {
-    this.state.onChange(this.state.value);
   }
 
   componentDidMount() {
@@ -26,10 +25,9 @@ class CKEditor extends Component {
       this.state.config,
       this.state.value
     );
-    this.instance.on("change", () => {
-      this.state.value = this.instance.getData();
-      this.handleChange();
-    });
+
+    this.instance.on('instanceReady', (e) => { e.editor.setData(this.state.value); });
+    this.instance.on('change', this.changeListener);
   }
 
   componentWillReceiveProps(props) {
@@ -52,6 +50,20 @@ class CKEditor extends Component {
       config: props.config || {},
       onChange: props.onChange
     });
+  }
+
+  componentWillUnmount() {
+    this.instance.removeListener("change", this.changeListener);
+    this.instance.destroy();
+  }
+
+  changeListener() {
+    this.state.value = this.instance.getData();
+    this.handleChange();
+  }
+
+  handleChange() {
+    this.state.onChange(this.state.value);
   }
 
   render() {
