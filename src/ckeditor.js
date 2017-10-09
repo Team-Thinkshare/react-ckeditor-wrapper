@@ -21,7 +21,7 @@ class CKEditor extends Component {
     }
 
     this.instance = window.CKEDITOR.appendTo(
-      ReactDOM.findDOMNode(this),
+      this.divRef,
       this.state.config,
       this.state.value
     );
@@ -67,7 +67,7 @@ class CKEditor extends Component {
   }
 
   render() {
-    return <div />;
+    return <div ref={(input) => this.divRef = input}/>;
   }
 }
 
