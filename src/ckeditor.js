@@ -26,7 +26,12 @@ class CKEditor extends Component {
       this.state.value
     );
 
-    this.instance.on('instanceReady', (e) => { e.editor.setData(this.state.value); });
+    this.instance.on('instanceReady', (e) => {
+      //Set content and read only flag again. Can have changed since init.
+      e.editor.setData(this.state.value);
+      if ("readOnly" in props.config)
+        this.instance.setReadOnly(props.config.readOnly);
+    });
     this.instance.on('change', this.changeListener);
   }
 
@@ -35,14 +40,19 @@ class CKEditor extends Component {
       return;
     }
 
-    if (this.state.value !== props.value) {
-      // setData will move the cursor to the begining of the input
-      this.instance.setData(props.value);
-    }
+    //Only manipulate the editor when it's ready. The data will be set when it's
+    //ready otherwise.
+    if (this.instance.status === "ready") {
 
-    if (props.config && this.state.config !== props.config) {
-      if ("readOnly" in props.config)
-        this.instance.setReadOnly(props.config.readOnly);
+      if (this.state.value !== props.value) {
+        // setData will move the cursor to the begining of the input
+        this.instance.setData(props.value);
+      }
+
+      if (props.config && this.state.config !== props.config) {
+        if ("readOnly" in props.config)
+          this.instance.setReadOnly(props.config.readOnly);
+      }
     }
 
     this.setState({
