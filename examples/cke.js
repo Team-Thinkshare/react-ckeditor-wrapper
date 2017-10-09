@@ -23011,7 +23011,9 @@ webpackJsonp([0,1],[
 	    this.instance = window.CKEDITOR.appendTo(this.divRef, this.state.config, this.state.value);
 	
 	    this.instance.on('instanceReady', function (e) {
+	      //Set content and read only flag again. Can have changed since init.
 	      e.editor.setData(_this2.state.value);
+	      if ("readOnly" in props.config) _this2.instance.setReadOnly(props.config.readOnly);
 	    });
 	    this.instance.on('change', this.changeListener);
 	  };
@@ -23021,13 +23023,18 @@ webpackJsonp([0,1],[
 	      return;
 	    }
 	
-	    if (this.state.value !== props.value) {
-	      // setData will move the cursor to the begining of the input
-	      this.instance.setData(props.value);
-	    }
+	    //Only manipulate the editor when it's ready. The data will be set when it's
+	    //ready otherwise.
+	    if (this.instance.status === "ready") {
 	
-	    if (props.config && this.state.config !== props.config) {
-	      if ("readOnly" in props.config) this.instance.setReadOnly(props.config.readOnly);
+	      if (this.state.value !== props.value) {
+	        // setData will move the cursor to the begining of the input
+	        this.instance.setData(props.value);
+	      }
+	
+	      if (props.config && this.state.config !== props.config) {
+	        if ("readOnly" in props.config) this.instance.setReadOnly(props.config.readOnly);
+	      }
 	    }
 	
 	    this.setState({
