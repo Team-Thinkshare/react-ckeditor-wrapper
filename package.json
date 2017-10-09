@@ -12,7 +12,7 @@
     "lib",
     "assets/*.css"
   ],
-  "main": "./lib/index",
+  "main": "./lib/index.js",
   "homepage": "https://github.com/luigiinred/react-ckeditor-wrapper",
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   },
   "scripts": {
     "build": "rc-tools run build",
+    "babel": "babel src -d lib",
     "gh-pages": "rc-tools run gh-pages",
     "start": "rc-tools run server",
     "pub": "rc-tools run pub --babel-runtime",
@@ -46,6 +47,11 @@
     ]
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "coveralls": "^2.11.15",
     "css-animation": "^1.2.0",
     "enzyme": "^2.6.0",
@@ -54,14 +60,15 @@
     "jest": "^17.0.3",
     "pre-commit": "1.x",
     "rc-tools": "5.x",
-    "react": "15.x",
+    "react": "^15.6.1",
     "react-addons-test-utils": "15.x",
-    "react-dom": "15.x"
+    "react-dom": "^15.6.1"
   },
   "dependencies": {
     "babel-runtime": "6.x",
     "classnames": "2.x",
     "dom-scroll-into-view": "1.x",
+    "happypack": "3.1.0",
     "rc-animate": "2.x",
     "rc-util": "3.x"
   },
