@@ -29,8 +29,8 @@ class CKEditor extends Component {
     this.instance.on('instanceReady', (e) => {
       //Set content and read only flag again. Can have changed since init.
       e.editor.setData(this.state.value);
-      if ("readOnly" in props.config)
-        this.instance.setReadOnly(props.config.readOnly);
+      if ("readOnly" in this.state.config)
+        this.instance.setReadOnly(this.state.config.readOnly);
     });
     this.instance.on('change', this.changeListener);
   }
