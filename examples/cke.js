@@ -23013,7 +23013,7 @@ webpackJsonp([0,1],[
 	    this.instance.on('instanceReady', function (e) {
 	      //Set content and read only flag again. Can have changed since init.
 	      e.editor.setData(_this2.state.value);
-	      if ("readOnly" in props.config) _this2.instance.setReadOnly(props.config.readOnly);
+	      if ("readOnly" in _this2.state.config) _this2.instance.setReadOnly(_this2.state.config.readOnly);
 	    });
 	    this.instance.on('change', this.changeListener);
 	  };
