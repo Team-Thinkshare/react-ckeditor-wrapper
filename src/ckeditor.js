@@ -36,13 +36,9 @@ class CKEditor extends Component {
   }
 
   componentWillReceiveProps(props) {
-    if (!this.instance) {
-      return;
-    }
-
     //Only manipulate the editor when it's ready. The data will be set when it's
     //ready otherwise.
-    if (this.instance.status === "ready") {
+    if (this.instance && this.instance.status === "ready") {
 
       if (this.state.value !== props.value) {
         // setData will move the cursor to the begining of the input
